@@ -70,6 +70,8 @@ jobs:
       run:
         working-directory: ./example-app
     needs: build
+    concurrency:
+      group: some-group-name
 
     steps:
       #----------------------------------------------
@@ -243,7 +245,8 @@ jobs:
     defaults:
       run:
         working-directory: ./example-app
-    needs: build
+    concurrency:
+      group: some-group-name
 
     steps:
       #----------------------------------------------
