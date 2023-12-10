@@ -64,26 +64,15 @@ jobs:
       #----------------------------------------------
       - name: Install django ${{ matrix.django-version }}
         run: poetry add "Django==${{ matrix.django-version }}"
-      
-    test:
-       runs-on: ubuntu-latest
-       strategy:
-         matrix:
-           os: [ubuntu-latest, windows-latest]
-       defaults:
-         run:
-           working-directory: ./example-app
-       needs: build
-       steps:
-       - name: Run tests
-         run: |
-          poetry run pytest tests/
-       - name: lint
-         run: |
+      - name: Run tests
+        run: |
+         poetry run pytest tests/
+      - name: lint
+        run: |
            poetry run task lint
-       - name: formatter
-         run: |
+      - name: formatter
+        run: |
             poetry run task formatter
-       - name: security
-         run: |
+      - name: security
+        run: |
              poetry run task security
