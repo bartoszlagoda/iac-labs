@@ -70,6 +70,8 @@ jobs:
       run:
         working-directory: ./example-app
     needs: build
+    concurrency:
+      group: tests
 
     steps:
       #----------------------------------------------
@@ -126,6 +128,8 @@ jobs:
       run:
         working-directory: ./example-app
     needs: build
+    concurrency:
+      group: tests
 
     steps:
       #----------------------------------------------
@@ -182,6 +186,8 @@ jobs:
       run:
         working-directory: ./example-app
     needs: build
+    concurrency:
+      group: tests
 
     steps:
       #----------------------------------------------
@@ -244,6 +250,8 @@ jobs:
       run:
         working-directory: ./example-app
     needs: build
+    concurrency:
+      group: tests
 
     steps:
       #----------------------------------------------
