@@ -29,6 +29,7 @@ python-dotenv = "0.19.2"
 Flask-Minify = "0.37"
 taskipy = "^1.10.3"
 psycopg2-binary = "^2.9.5"
+coverage = "^6.0"
 
 black = "^22.10.0"
 pylint = "^2.15.5"
