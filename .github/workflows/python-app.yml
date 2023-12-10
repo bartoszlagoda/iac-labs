@@ -65,3 +65,12 @@ jobs:
       - name: Run tests
         run: |
           poetry run pytest tests/
+      - name: lint
+        run: |
+          poetry run task lint
+      - name: formatter
+        run: |
+          poetry run task formatter
+      - name: security
+        run: |
+          poetry run task security
