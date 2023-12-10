@@ -60,8 +60,9 @@ jobs:
       #----------------------------------------------
       #              run test suite
       #----------------------------------------------
+      - name: Install django ${{ matrix.django-version }}
+        run: poetry add "Django==${{ matrix.django-version }}"
       - name: Run tests
         run: |
-          source .venv/bin/activate
-          pytest tests/
-          coverage report
+          poetry run pytest tests/
+          poetry run coverage report
