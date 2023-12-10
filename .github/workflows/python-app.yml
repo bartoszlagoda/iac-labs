@@ -47,12 +47,12 @@ jobs:
       #----------------------------------------------
       #       load cached venv if cache exists
       #----------------------------------------------
-      - name: Load cached venv
+      - name: Cache build venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+          path: /home/runner/work/<path>/example-app/.venv
+          key: ${{ runner.os }}-venv
       #----------------------------------------------
       # install dependencies if cache does not exist
       #----------------------------------------------
@@ -60,7 +60,7 @@ jobs:
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction --no-root
   
-  tests:
+  lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -95,12 +95,12 @@ jobs:
       #----------------------------------------------
       #       load cached venv if cache exists
       #----------------------------------------------
-      - name: Load cached venv
+      - name: Cache build venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+          path: /home/runner/work/<path>/example-app/.venv
+          key: ${{ runner.os }}-venv
       #----------------------------------------------
       # install dependencies if cache does not exist
       #----------------------------------------------
@@ -128,7 +128,7 @@ jobs:
     defaults:
       run:
         working-directory: ./example-app
-    needs: tests
+    needs: lint
 
     steps:
       #----------------------------------------------
@@ -154,12 +154,12 @@ jobs:
       #----------------------------------------------
       #       load cached venv if cache exists
       #----------------------------------------------
-      - name: Load cached venv
+      - name: Cache build venv
         id: cached-poetry-dependencies
         uses: actions/cache@v3
         with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+          path: /home/runner/work/<path>/example-app/.venv
+          key: ${{ runner.os }}-venv
       #----------------------------------------------
       # install dependencies if cache does not exist
       #----------------------------------------------
