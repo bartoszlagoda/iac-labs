@@ -12,7 +12,7 @@ requires = ["setuptools", "poetry-core>=1.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.11"
 Flask = "2.0.2"
 Werkzeug = "2.0.3"
 Jinja2 = "3.0.2"
