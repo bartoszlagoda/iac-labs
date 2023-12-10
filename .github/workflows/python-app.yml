@@ -39,8 +39,6 @@ jobs:
         pytest
     - name: Install Poetry
       uses: snok/install-poetry@v1
-    - name: Install project
-      run: poetry install --no-interaction
       #----------------------------------------------
       #              run test suite
       #----------------------------------------------
