@@ -37,6 +37,8 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Set working directory to ./example-app
+      run: cd ./example-app
     #----------------------------------------------
       #  -----  install & configure poetry  -----
       #----------------------------------------------
